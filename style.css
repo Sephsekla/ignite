@@ -5,7 +5,7 @@ Author: Joe Bailey-Roberts
 Author URI: https://fluroltd.com
 GitHub Theme URI: sephsekla/ignition
 Description: A framework for bespoke theme development
-Version: 0.0.6
+Version: 0.0.7
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: ignite
@@ -34,6 +34,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Alignments
 # Clearings
 # Widgets
+# Header
 # Content
 	## Posts and pages
 	## Comments
@@ -507,10 +508,8 @@ a:hover, a:active {
 ## Menus
 --------------------------------------------------------------*/
 .main-navigation {
-	clear: both;
 	display: block;
 	float: left;
-	width: 100%;
 }
 
 .main-navigation ul {
@@ -701,6 +700,19 @@ a:hover, a:active {
 .widget select {
 	max-width: 100%;
 }
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+
+.site-header{
+	background-color: gray;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.custom-logo-link img{max-height: 80px; width: auto}
+
 
 /*--------------------------------------------------------------
 # Content

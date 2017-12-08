@@ -24,7 +24,8 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'ignite' ); ?></a>
 
-	<header id="masthead" class="site-header container">
+	<header id="masthead" class="site-header">
+		<div class="container d-flex justify-content-between align-items-center">
 		<div class="site-branding">
 			<?php
 			the_custom_logo();
@@ -51,6 +52,7 @@
 				) );
 			?>
 		</nav><!-- #site-navigation -->
+	</div>
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
