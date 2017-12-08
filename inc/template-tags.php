@@ -100,3 +100,14 @@ if ( ! function_exists( 'ignite_entry_footer' ) ) :
 		);
 	}
 endif;
+
+if ( ! function_exists( 'ignite_section' ) ) :
+
+function ignite_section($content=''){
+
+return '<section>'.$content.'</section>';
+
+
+}
+
+endif;

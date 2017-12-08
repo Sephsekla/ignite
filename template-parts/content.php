@@ -26,7 +26,7 @@
 		endif; ?>
 	</header><!-- .entry-header -->
 
-	<div class="entry-content container">
+	<div class="entry-content">
 		<?php
 			the_content( sprintf(
 				wp_kses(
