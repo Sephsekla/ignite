@@ -17,6 +17,12 @@ function ignite_body_classes( $classes ) {
 		$classes[] = 'hfeed';
 	}
 
+$position = get_theme_mod('sidebar');
+
+if ( $position ) {
+	$classes[] = 'sidebar-'.$position;
+}
+
 	return $classes;
 }
 add_filter( 'body_class', 'ignite_body_classes' );

@@ -7,11 +7,19 @@
  * @package Ignite
  */
 
-if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+$position = get_theme_mod('sidebar');
+
+if ( ! is_active_sidebar( 'sidebar-1' ) || !$position) {
 	return;
 }
+
+
+
+
+
 ?>
 
 <aside id="secondary" class="widget-area">
 	<?php dynamic_sidebar( 'sidebar-1' ); ?>
 </aside><!-- #secondary -->
+ 

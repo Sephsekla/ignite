@@ -28,6 +28,39 @@ function ignite_customize_register( $wp_customize ) {
 }
 add_action( 'customize_register', 'ignite_customize_register' );
 
+
+
+function ignite_layout_options($wp_customize){
+
+	$wp_customize->add_section( 'ignite_layout' , array(
+	    'title'      => 'Layout',
+	    'priority'   => 30,
+	) );
+
+	$wp_customize->add_setting( 'sidebar' , array(
+    'default'     => false,
+    'transport'   => 'refresh',
+) );
+
+$wp_customize->add_control( 'sidebar_layout', array(
+  'label' => 'Sidebar Position',
+  'section' => 'ignite_layout',
+  'settings' => 'sidebar',
+  'type' => 'radio',
+  'choices' => array(
+    false => 'No sidebar',
+    'left' => 'Left Sidebar',
+		'right' => 'Right Sidebar',
+  ),
+) );
+
+
+}
+
+add_action( 'customize_register', 'ignite_layout_options' );
+
+
+
 /**
  * Render the site title for the selective refresh partial.
  *
