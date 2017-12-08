@@ -21,6 +21,18 @@ $position = get_theme_mod('sidebar');
 
 if ( $position ) {
 	$classes[] = 'sidebar-'.$position;
+
+
+}
+
+$hamburger = get_theme_mod('hamburger');
+
+if ( $hamburger ) {
+	$classes[] = 'has_burger';
+}
+
+else{
+	$classes[] = 'no_burger';
 }
 
 	return $classes;
@@ -36,3 +48,13 @@ function ignite_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'ignite_pingback_header' );
+
+
+
+
+if(get_theme_mod('banner')=='narrow'){
+
+	add_filter('the_content',function($content){return get_the_post_thumbnail(get_the_id()).$content;},10);
+
+
+}

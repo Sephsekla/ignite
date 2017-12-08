@@ -5,7 +5,7 @@ Author: Joe Bailey-Roberts
 Author URI: https://fluroltd.com
 GitHub Theme URI: sephsekla/ignition
 Description: A framework for bespoke theme development
-Version: 0.0.7
+Version: 0.1.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: ignite
@@ -512,8 +512,8 @@ a:hover, a:active {
 	float: left;
 }
 
+
 .main-navigation ul {
-	display: none;
 	list-style: none;
 	margin: 0;
 	padding-left: 0;
@@ -547,10 +547,7 @@ a:hover, a:active {
 	left: auto;
 }
 
-.main-navigation li {
-	float: left;
-	position: relative;
-}
+
 
 .main-navigation a {
 	display: block;
@@ -563,13 +560,49 @@ a:hover, a:active {
 	display: block;
 }
 
+.menu-menu-1-container{
+	position: fixed;
+	height: 100vh; width: 100vw;
+	background-color: rgba(0,0,0,0.5);
+	top: 0;
+	right: -100vw;
+	display: flex;
+align-items: center;
+justify-content: center;
+transition: right 0.5s ease;
+}
+
+.toggled .menu-menu-1-container{display: flex; right: 0;}
+
+.menu-toggle{position: relative; z-index: 100;}
+
 @media screen and (min-width: 37.5em) {
-	.menu-toggle {
+	.no_burger .menu-toggle {
 		display: none;
 	}
+
+.menu-menu-1-container{width: 30vw}
+
 	.main-navigation ul {
 		display: block;
 	}
+
+	.no_burger .main-navigation li {
+		float: left;
+		position: relative;
+		padding-left: 15px;
+	}
+
+.no_burger .menu-menu-1-container{
+	position: relative;
+	height: initial;
+	width: initial;
+	background-color: transparent;
+	top: 0;
+	left: 0;
+	display: block;
+}
+
 }
 
 .site-main .comment-navigation, .site-main
@@ -712,6 +745,8 @@ a:hover, a:active {
 }
 
 .custom-logo-link img{max-height: 80px; width: auto}
+
+.banner img{width: 100%;}
 
 
 /*--------------------------------------------------------------

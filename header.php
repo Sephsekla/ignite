@@ -44,7 +44,7 @@
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'ignite' ); ?></button>
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'ignite' ); ?></button>
 			<?php
 				wp_nav_menu( array(
 					'theme_location' => 'menu-1',
@@ -55,4 +55,17 @@
 	</div>
 	</header><!-- #masthead -->
 
+<?php
+
+if(get_theme_mod('banner')=='wide'){
+
+?>
+
+<div class="banner"><?php the_post_thumbnail();?></div>
+
+<?php
+
+}
+
+?>
 	<div id="content" class="site-content">

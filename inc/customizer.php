@@ -32,10 +32,14 @@ add_action( 'customize_register', 'ignite_customize_register' );
 
 function ignite_layout_options($wp_customize){
 
+	//LAYOUT
+
 	$wp_customize->add_section( 'ignite_layout' , array(
 	    'title'      => 'Layout',
 	    'priority'   => 30,
 	) );
+
+	//Sidebar
 
 	$wp_customize->add_setting( 'sidebar' , array(
     'default'     => false,
@@ -52,6 +56,43 @@ $wp_customize->add_control( 'sidebar_layout', array(
     'left' => 'Left Sidebar',
 		'right' => 'Right Sidebar',
   ),
+) );
+
+//Hamburger Menu
+
+$wp_customize->add_setting( 'hamburger' , array(
+	'default'     => false,
+	'transport'   => 'refresh',
+) );
+
+$wp_customize->add_control( 'hamburger', array(
+'label' => 'Show hamburger on desktop?',
+'section' => 'ignite_layout',
+'settings' => 'hamburger',
+'type' => 'radio',
+'choices' => array(
+	false => 'Full menu on desktop',
+	true => 'Hamburger on desktop',
+),
+) );
+
+//Banner Image
+
+$wp_customize->add_setting( 'banner' , array(
+	'default'     => false,
+	'transport'   => 'refresh',
+) );
+
+$wp_customize->add_control( 'banner', array(
+'label' => 'Featured Image',
+'section' => 'header_image',
+'settings' => 'banner',
+'type' => 'radio',
+'choices' => array(
+	false => 'Hide Image',
+	'wide' => 'Full width banner',
+	'narrow' => 'Image in content container',
+),
 ) );
 
 

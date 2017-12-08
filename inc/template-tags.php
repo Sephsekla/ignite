@@ -112,4 +112,4 @@ return '<section class="'.$classes.'"><div class="container">'.$content.'</div><
 
 endif;
 
-add_filter('the_content',function($content){return ignite_section($content);});
+add_filter('the_content',function($content){return ignite_section($content);},100);
