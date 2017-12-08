@@ -103,11 +103,13 @@ endif;
 
 if ( ! function_exists( 'ignite_section' ) ) :
 
-function ignite_section($content=''){
+function ignite_section($content='', $classes=''){
 
-return '<section>'.$content.'</section>';
+return '<section class="'.$classes.'"><div class="container">'.$content.'</div></section>';
 
 
 }
 
 endif;
+
+add_filter('the_content',ignite_section($content,''));
