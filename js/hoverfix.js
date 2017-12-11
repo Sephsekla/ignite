@@ -31,7 +31,7 @@ $(this).addClass('hover');
 
  } )
 
- $('.grid').masonry({
+ $('.grid').isotope({
    // options
    itemSelector: '.grid-item',
    columnWidth: '.grid-item',
