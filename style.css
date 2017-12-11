@@ -575,7 +575,15 @@ transition: right 0.5s ease;
 
 .toggled .menu-menu-1-container{display: flex; right: 0;}
 
-.menu-toggle{position: relative; z-index: 100;}
+.menu-toggle {
+    position: relative;
+    z-index: 100;
+    -webkit-appearance: none;
+    background-color: transparent;
+    border-radius: 0;
+    border: 0;
+    color: white;
+}
 
 @media screen and (min-width: 37.5em) {
 	.no_burger .menu-toggle {

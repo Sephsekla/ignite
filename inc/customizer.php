@@ -100,6 +100,35 @@ $wp_customize->add_control( 'banner', array(
 
 add_action( 'customize_register', 'ignition_layout_options' );
 
+function ignition_blog_options($wp_customize){
+
+	$wp_customize->add_section( 'ignition_blog' , array(
+	    'title'      => 'Blog Options',
+	    'priority'   => 40,
+	) );
+
+
+	$wp_customize->add_setting( 'blog-layout' , array(
+		'default'     => 'masonry',
+		'transport'   => 'refresh',
+	) );
+
+	$wp_customize->add_control( 'blog-layout', array(
+	'label' => 'Blog page layout',
+	'section' => 'ignition_blog',
+	'settings' => 'blog-layout',
+	'type' => 'radio',
+	'choices' => array(
+		'masonry' => 'Show Masonry',
+		'full-content' => 'Show full post in a list',
+	),
+	) );
+
+
+}
+
+	add_action( 'customize_register', 'ignition_blog_options' );
+
 
 
 /**
