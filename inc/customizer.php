@@ -1,8 +1,8 @@
 <?php
 /**
- * Ignite Theme Customizer
+ * ignition Theme Customizer
  *
- * @package Ignite
+ * @package ignition
  */
 
 /**
@@ -10,7 +10,7 @@
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
-function ignite_customize_register( $wp_customize ) {
+function ignition_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
@@ -18,23 +18,23 @@ function ignite_customize_register( $wp_customize ) {
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial( 'blogname', array(
 			'selector'        => '.site-title a',
-			'render_callback' => 'ignite_customize_partial_blogname',
+			'render_callback' => 'ignition_customize_partial_blogname',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'blogdescription', array(
 			'selector'        => '.site-description',
-			'render_callback' => 'ignite_customize_partial_blogdescription',
+			'render_callback' => 'ignition_customize_partial_blogdescription',
 		) );
 	}
 }
-add_action( 'customize_register', 'ignite_customize_register' );
+add_action( 'customize_register', 'ignition_customize_register' );
 
 
 
-function ignite_layout_options($wp_customize){
+function ignition_layout_options($wp_customize){
 
 	//LAYOUT
 
-	$wp_customize->add_section( 'ignite_layout' , array(
+	$wp_customize->add_section( 'ignition_layout' , array(
 	    'title'      => 'Layout',
 	    'priority'   => 30,
 	) );
@@ -48,7 +48,7 @@ function ignite_layout_options($wp_customize){
 
 $wp_customize->add_control( 'sidebar_layout', array(
   'label' => 'Sidebar Position',
-  'section' => 'ignite_layout',
+  'section' => 'ignition_layout',
   'settings' => 'sidebar',
   'type' => 'radio',
   'choices' => array(
@@ -67,7 +67,7 @@ $wp_customize->add_setting( 'hamburger' , array(
 
 $wp_customize->add_control( 'hamburger', array(
 'label' => 'Show hamburger on desktop?',
-'section' => 'ignite_layout',
+'section' => 'ignition_layout',
 'settings' => 'hamburger',
 'type' => 'radio',
 'choices' => array(
@@ -98,7 +98,7 @@ $wp_customize->add_control( 'banner', array(
 
 }
 
-add_action( 'customize_register', 'ignite_layout_options' );
+add_action( 'customize_register', 'ignition_layout_options' );
 
 
 
@@ -107,7 +107,7 @@ add_action( 'customize_register', 'ignite_layout_options' );
  *
  * @return void
  */
-function ignite_customize_partial_blogname() {
+function ignition_customize_partial_blogname() {
 	bloginfo( 'name' );
 }
 
@@ -116,14 +116,14 @@ function ignite_customize_partial_blogname() {
  *
  * @return void
  */
-function ignite_customize_partial_blogdescription() {
+function ignition_customize_partial_blogdescription() {
 	bloginfo( 'description' );
 }
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
-function ignite_customize_preview_js() {
-	wp_enqueue_script( 'ignite-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
+function ignition_customize_preview_js() {
+	wp_enqueue_script( 'ignition-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
 }
-add_action( 'customize_preview_init', 'ignite_customize_preview_js' );
+add_action( 'customize_preview_init', 'ignition_customize_preview_js' );

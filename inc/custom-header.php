@@ -8,33 +8,33 @@
  *
  * @link https://developer.wordpress.org/themes/functionality/custom-headers/
  *
- * @package Ignite
+ * @package ignition
  */
 
 /**
  * Set up the WordPress core custom header feature.
  *
- * @uses ignite_header_style()
+ * @uses ignition_header_style()
  */
-function ignite_custom_header_setup() {
-	add_theme_support( 'custom-header', apply_filters( 'ignite_custom_header_args', array(
+function ignition_custom_header_setup() {
+	add_theme_support( 'custom-header', apply_filters( 'ignition_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => '000000',
 		'width'                  => 1000,
 		'height'                 => 250,
 		'flex-height'            => true,
-		'wp-head-callback'       => 'ignite_header_style',
+		'wp-head-callback'       => 'ignition_header_style',
 	) ) );
 }
-add_action( 'after_setup_theme', 'ignite_custom_header_setup' );
+add_action( 'after_setup_theme', 'ignition_custom_header_setup' );
 
-if ( ! function_exists( 'ignite_header_style' ) ) :
+if ( ! function_exists( 'ignition_header_style' ) ) :
 	/**
 	 * Styles the header image and text displayed on the blog.
 	 *
-	 * @see ignite_custom_header_setup().
+	 * @see ignition_custom_header_setup().
 	 */
-	function ignite_header_style() {
+	function ignition_header_style() {
 		$header_text_color = get_header_textcolor();
 
 		/*

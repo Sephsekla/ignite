@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package Ignite
+ * @package ignition
  */
 
 $position = get_theme_mod('sidebar');
@@ -22,4 +22,3 @@ if ( ! is_active_sidebar( 'sidebar-1' ) || !$position) {
 <aside id="secondary" class="widget-area">
 	<?php dynamic_sidebar( 'sidebar-1' ); ?>
 </aside><!-- #secondary -->
- 
