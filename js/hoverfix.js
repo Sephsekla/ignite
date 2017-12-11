@@ -4,7 +4,7 @@
  */
 
 
-jQuery(document).ready(function($){
+jQuery(document).ready((function($){
 
 $(".canhover" ).on( "tap", function( event ) {
 
@@ -16,4 +16,4 @@ $(this).addClass('hover');
  } )
 
 
-})( jQuery );
+})( jQuery ));
