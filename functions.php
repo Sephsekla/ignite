@@ -132,18 +132,21 @@ wp_enqueue_script( 'popper',  'https://cdnjs.cloudflare.com/ajax/libs/popper.js/
 function ignition_scripts() {
 	wp_enqueue_style( 'ignition-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'jQuery-mobile', get_template_directory_uri() . '/lib/jquery.mobile.custom/jquery.mobile.custom.min.js', array('jQuery'), '1.4.5', true );
+	wp_enqueue_script( 'jquery-mobile', get_template_directory_uri() . '/lib/jquery.mobile.custom/jquery.mobile.custom.min.js', array('jquery'), '1.4.5', true );
 
 	wp_enqueue_script( 'theme-animations', get_template_directory_uri() . '/js/theme-animations.js', array(), filemtime(get_template_directory_uri() . '/js/theme-animations.js'), true );
 
-	wp_enqueue_script( 'hoverfix', get_template_directory_uri() . '/js/hoverfix.js', array('jQuery-mobile'), filemtime(get_template_directory_uri() . '/js/hoverfix.js'), true );
+	wp_enqueue_script( 'jquery-masonry', '', array('jQuery'));
+
+	//See https://masonry.desandro.com/ for masonry setup details
+
+	wp_enqueue_script( 'ignition-hoverfix', get_template_directory_uri() . '/js/hoverfix.js', array('jquery-mobile','jquery-masonry'), filemtime(get_template_directory_uri() . '/js/hoverfix.js'), true );
 
 	wp_enqueue_script( 'ignition-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'ignition-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 
-wp_enqueue_script( 'jquery-masonry', '', array('jQuery'));
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

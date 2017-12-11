@@ -8,12 +8,34 @@ jQuery(document).ready((function($){
 
 $(".canhover" ).on( "tap", function( event ) {
 
-  alert("tap");
+if($(this).is(":hover")){
+
+return false;
+
+}
+
+else if($(this).hasClass("hover")){
+
+$(this).removeClass('hover');
+
+}
+
+else{
+
+event.preventDefault();
 
 $(this).addClass('hover');
 
 
+}
+
  } )
+
+ $('.grid').masonry({
+   // options
+   itemSelector: '.grid-item',
+   columnWidth: 200
+ });
 
 
 })( jQuery ));
