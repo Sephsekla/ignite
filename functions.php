@@ -138,12 +138,15 @@ function ignition_scripts() {
 
 	wp_enqueue_script( 'jquery-masonry', '', array('jquery'));
 
+	wp_enqueue_script( 'jquery-match-height', get_template_directory_uri() . '/lib/jquery.matchHeight.js', array('jquery'));
+
+
 	wp_enqueue_script( 'isotope', 'https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js', array('jquery'));
 
 
 	//See https://masonry.desandro.com/ for masonry setup details
 
-	wp_enqueue_script( 'ignition-hoverfix', get_template_directory_uri() . '/js/hoverfix.js', array('jquery-mobile','jquery-masonry','isotope'), filemtime(get_template_directory_uri() . '/js/hoverfix.js'), true );
+	wp_enqueue_script( 'ignition-hoverfix', get_template_directory_uri() . '/js/hoverfix.js', array('jquery-mobile','jquery-masonry','isotope','jquery-match-height'), filemtime(get_template_directory_uri() . '/js/hoverfix.js'), true );
 
 	wp_enqueue_script( 'ignition-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 

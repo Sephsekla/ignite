@@ -120,6 +120,7 @@ function ignition_blog_options($wp_customize){
 	'type' => 'radio',
 	'choices' => array(
 		'masonry' => 'Show Masonry',
+		'equal' => 'Show equal height masonry',
 		'full-content' => 'Show full post in a list',
 	),
 	) );

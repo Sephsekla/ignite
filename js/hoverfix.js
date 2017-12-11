@@ -31,14 +31,55 @@ $(this).addClass('hover');
 
  } )
 
- $('.grid').isotope({
-   // options
-   itemSelector: '.grid-item',
-   columnWidth: '.grid-item',
-   percentPosition: true,
-   //gutter: 10,
-   horizontalOrder: true
+
+
+ $('.grid').each( function(){
+
+if($(this).hasClass('match-equal')){
+
+$isoargs = {
+  // options
+  itemSelector: '.grid-item',
+  columnWidth: '.grid-item',
+  percentPosition: true,
+  //gutter: 10,
+  horizontalOrder: true,
+  layoutMode : 'fitRows'
+}
+
+
+}
+else{
+
+  $isoargs = {
+    // options
+    itemSelector: '.grid-item',
+    columnWidth: '.grid-item',
+    percentPosition: true,
+    //gutter: 10,
+    horizontalOrder: true,
+    layoutMode : 'masonry'
+  }
+
+}
+
+ $(this).isotope($isoargs);
+
+})
+
+ $('.match-equal .grid-item').matchHeight({
+
+property: 'height',
+byRow: false,
+
  });
+
+ // bind filter button click
+$('#filters').on( 'click', 'button', function() {
+  var filterValue = $( this ).attr('data-filter');
+  $grid.isotope({ filter: filterValue });
+});
+
 
 
 })( jQuery ));

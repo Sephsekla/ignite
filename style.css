@@ -914,7 +914,7 @@ object {
 ## Masonry
 --------------------------------------------------------------*/
 
-.masonry-brick{
+.grid-item{
 
 background-color: #fafafa;
 border: 1px solid grey;
