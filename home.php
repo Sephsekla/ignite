@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying archive pages
+ * The template for displaying blog posts
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -11,10 +11,9 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main container">
-
 		<?php
 
-echo get_theme_mod('blog-layout')."123";
+echo get_theme_mod('blog-layout');
 
 		if ( have_posts() ) : ?>
 

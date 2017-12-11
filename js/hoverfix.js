@@ -34,7 +34,10 @@ $(this).addClass('hover');
  $('.grid').masonry({
    // options
    itemSelector: '.grid-item',
-   columnWidth: 200
+   columnWidth: '.grid-item',
+   percentPosition: true,
+   //gutter: 10,
+   horizontalOrder: true
  });
 
 
