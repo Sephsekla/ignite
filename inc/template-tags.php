@@ -152,7 +152,7 @@ else{
 
 	//print_r($data);
 
-	$output.= "<button data-filter='.".$key."-".$data -> slug."'>";
+	$output.= "<button data-filter='.".$key."-".$data -> slug."' class='btn-dark'>";
 	$output.= $data -> name;
 $output.="</button>";
 	}
@@ -161,7 +161,7 @@ $output.="</button>";
 
 if($output!==''){
 
-	echo "<div id='filters' class='d-flex justify-content-center row'><button href='#' data-filter='*'>show all</button>".$output."</div>";
+	echo "<div id='filters' class='d-flex justify-content-center row'><button href='#' data-filter='*' class='filter-active btn-dark'>show all</button>".$output."</div>";
 
 
 }

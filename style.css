@@ -926,3 +926,17 @@ margin: 0;
 	padding: 1em;
 
 }
+
+#filters{margin-bottom: 50px;}
+
+#filters button{margin-right: 20px;}
+
+#filters button:last-child{margin-right: 0px;}
+
+.filter-active{
+
+background-color: red;
+color: white;
+
+
+}

@@ -77,7 +77,9 @@ byRow: false,
  // bind filter button click
 $('#filters').on( 'click', 'button', function() {
   var filterValue = $( this ).attr('data-filter');
+  $(".filter-active").removeClass('filter-active');
   $(".grid").isotope({ filter: filterValue });
+  $(this).addClass('filter-active');
 });
 
 

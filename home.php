@@ -15,7 +15,7 @@ get_header(); ?>
 
 		if ( have_posts() ) :
 
-get_filters('category');
+
 
 			?>
 
@@ -31,6 +31,8 @@ get_filters('category');
 			<?php
 
 if(get_theme_mod('blog-layout')=='masonry'){
+
+	get_filters('category');
 
 ?>
 

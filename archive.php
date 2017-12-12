@@ -17,7 +17,7 @@
 
  		if ( have_posts() ) :
 
-			get_filters();
+
 
 			?>
 
@@ -31,6 +31,8 @@
  			<?php
 
  if(get_theme_mod('blog-layout')=='masonry'){
+
+			get_filters();
 
  ?>
 
