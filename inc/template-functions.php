@@ -58,3 +58,24 @@ if(get_theme_mod('banner')=='narrow'){
 
 
 }
+
+function display_logo(string $html){
+
+if(get_theme_mod('logo-svg')){
+
+	$html = sprintf( '<a href="%1$s" class="custom-logo-link" rel="home" itemprop="url">%2$s</a>',
+	            esc_url( home_url( '/' ) ),
+	            file_get_contents(get_stylesheet_directory_uri()."/inc/logo.svg")
+	        );
+return $html;
+}
+
+else{
+
+return $html;
+
+}
+
+}
+
+add_filter('get_custom_logo','display_logo',100,1);

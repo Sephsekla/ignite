@@ -5,7 +5,7 @@ Author: Joe Bailey-Roberts
 Author URI: https://fluroltd.com
 GitHub Theme URI: sephsekla/ignition
 Description: A framework for bespoke theme development
-Version: 0.2.1
+Version: 0.2.2
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: ignition
@@ -754,7 +754,7 @@ transition: right 0.5s ease;
 	padding-bottom: 10px;
 }
 
-.custom-logo-link img{max-height: 80px; width: auto}
+.custom-logo-link img, .custom-logo-link svg{height: 80px; width: auto}
 
 .banner img{width: 100%;}
 

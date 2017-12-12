@@ -130,6 +130,29 @@ function ignition_blog_options($wp_customize){
 
 	add_action( 'customize_register', 'ignition_blog_options' );
 
+	function ignition_logo_options($wp_customize){
+
+
+		$wp_customize->add_setting( 'logo-svg' , array(
+			'default'     => false,
+			'transport'   => 'refresh',
+		) );
+
+		$wp_customize->add_control( 'logo-svg', array(
+		'label' => 'Use svg logo',
+		'section' => 'title_tagline',
+		'settings' => 'logo-svg',
+		'type' => 'radio',
+		'choices' => array(
+			false => 'Use image logo (above)',
+			true => 'Use svg logo',
+		),
+		) );
+
+
+	}
+
+		add_action( 'customize_register', 'ignition_logo_options' );
 
 
 /**
