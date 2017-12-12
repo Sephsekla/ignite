@@ -13,8 +13,6 @@ get_header(); ?>
 		<main id="main" class="site-main container">
 		<?php
 
-echo get_theme_mod('blog-layout');
-
 		if ( have_posts() ) : ?>
 
 
