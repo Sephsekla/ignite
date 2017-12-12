@@ -1,6 +1,8 @@
 <?php
-/**
+/**Template Name: Archive
  * The template for displaying archive pages
+ *
+ *
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -13,7 +15,11 @@
  		<main id="main" class="site-main container">
  		<?php
 
- 		if ( have_posts() ) : ?>
+ 		if ( have_posts() ) :
+
+			get_filters();
+
+			?>
 
  			<header class="page-header">
  				<?php

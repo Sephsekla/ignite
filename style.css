@@ -5,7 +5,7 @@ Author: Joe Bailey-Roberts
 Author URI: https://fluroltd.com
 GitHub Theme URI: sephsekla/ignition
 Description: A framework for bespoke theme development
-Version: 0.2.0
+Version: 0.2.1
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: ignition
@@ -916,21 +916,13 @@ object {
 
 .grid-item{
 
-background-color: #fafafa;
-border: 1px solid grey;
-
+margin: 0;
 }
 
-/*.grid-sizer{width: 100%;}
 
-/*
-.grid-item{width: 33.3%;}
-
-@media(max-width: 767px){
-
-
-.grid-item{width: 50%}
+.grid-item .masonry-inner{
+	background-color: #fafafa;
+	margin-bottom: 1.5em;
+	padding: 1em;
 
 }
-
-*/

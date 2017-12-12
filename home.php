@@ -13,7 +13,11 @@ get_header(); ?>
 		<main id="main" class="site-main container">
 		<?php
 
-		if ( have_posts() ) : ?>
+		if ( have_posts() ) :
+
+get_filters('category');
+
+			?>
 
 
 

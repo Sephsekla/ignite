@@ -113,3 +113,57 @@ return '<section class="'.$classes.'"><div class="container">'.$content.'</div><
 endif;
 
 add_filter('the_content',function($content){return ignition_section($content);},100);
+
+function get_filters($taxonomy=false){
+
+$output ='';
+
+if($taxonomy){
+
+$taxonomy_objects = array($taxonomy => get_taxonomy($taxonomy));
+
+
+}
+else{
+
+	global $wp_query;
+
+	//print_r($wp_query->query_vars['post_type']);
+
+	$taxonomy_objects = get_object_taxonomies( $wp_query->query_vars['post_type'], 'objects' );
+	//print_r( $taxonomy_objects);
+}
+	foreach($taxonomy_objects as $key => $value){
+
+	$termdata = get_terms(
+
+	array(
+	'taxonomy' => $key,
+	'hide_empty' => false,
+	)
+
+
+	);
+
+	//print_r($termdata);
+	//echo $termdata=>'';
+
+	foreach($termdata as $term => $data){
+
+	//print_r($data);
+
+	$output.= "<button data-filter='.".$key."-".$data -> slug."'>";
+	$output.= $data -> name;
+$output.="</button>";
+	}
+
+	}
+
+if($output!==''){
+
+	echo "<div id='filters' class='d-flex justify-content-center row'><button href='#' data-filter='*'>show all</button>".$output."</div>";
+
+
+}
+
+}

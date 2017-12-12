@@ -10,6 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(array("grid-item col-xl-3 col-lg-4 col-md-6 col-sm-12")); ?>>
+<div class='masonry-inner'>
 	<header class="entry-header container">
 		<?php
 		if ( is_singular() ) :
@@ -51,4 +52,4 @@
 	<footer class="entry-footer container">
 		<?php ignition_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+</div></article><!-- #post-<?php the_ID(); ?> -->
