@@ -49,6 +49,22 @@ $isoargs = {
 
 
 }
+
+else if($(this).hasClass('image-grid')){
+
+$isoargs = {
+  // options
+  itemSelector: '.grid-item',
+  columnWidth: '.grid-item',
+  percentPosition: true,
+  //gutter: 10,
+  horizontalOrder: true,
+  layoutMode : 'masonry'
+}
+
+
+}
+
 else{
 
   $isoargs = {

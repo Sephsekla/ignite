@@ -61,7 +61,7 @@ if(get_theme_mod('banner')=='wide'){
 
 ?>
 
-<div class="banner"><?php the_post_thumbnail();?></div>
+<div class="banner"><?php the_post_thumbnail('banner');?></div>
 
 <?php
 

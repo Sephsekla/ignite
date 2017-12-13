@@ -320,3 +320,35 @@ function create_book_taxonomies() {
 
 	register_taxonomy( 'writer', 'book', $args );
 }
+
+//Image Sizes
+
+add_action( 'after_setup_theme', 'ignition_thumbnails' );
+function ignition_thumbnails() {
+    add_image_size( 'banner', 1600, 500, true );
+		add_image_size( 'square', 900, 900, true );
+		add_image_size( 'medium-crop', 900, 500, true );
+		add_image_size( 'medium', 900, 500, false );
+
+}
+
+function RemoveAddMediaButtonsForNonAdmins(){
+    if ( !current_user_can( 'manage_options' ) || true) {
+        remove_action( 'media_buttons', 'media_buttons' );
+    }
+}
+add_action('admin_head', 'RemoveAddMediaButtonsForNonAdmins');
+
+
+//TESTING
+
+add_shortcode('mgallery',function(){
+
+	$images = get_post_meta(get_the_ID(),'gallery');
+
+	$images = $images[0];
+
+	return mgallery($images,false,true);
+
+
+});

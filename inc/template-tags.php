@@ -167,3 +167,42 @@ if($output!==''){
 }
 
 }
+
+//MASONRY GALLERY
+
+function mgallery($images=array(),$fullwidth=false,$inline=false){
+
+$output = '';
+
+
+foreach($images as $image=>$ID){
+
+$meta = wp_get_attachment_metadata($ID);
+
+if($meta['width'] > 2*$meta['height']){
+
+$output .= '<div class="grid-item col-xs-12 col-md-8 col-lg-6">'.wp_get_attachment_image($ID,'medium').'</div>';
+
+
+}
+
+else{
+$output .= '<div class="grid-item col-xs-12 col-sm-6 col-md-4 col-lg-3">'.wp_get_attachment_image($ID,'medium').'</div>';
+
+}
+
+}
+
+if($inline){return '<div class="grid row no-gutters image-grid">'.$output.'</div>';}
+
+else if($fullwidth){
+
+	return '<section><div class="container-fluid"><div class="grid row no-gutters image-grid">'.$output.'</div></div></section>';
+
+
+}
+
+else{
+	return '<section><div class="container"><div class="grid row no-gutters image-grid">'.$output.'</div></div></section>';
+}
+}
