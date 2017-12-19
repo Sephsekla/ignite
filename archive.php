@@ -80,7 +80,7 @@
 
  endwhile;
 
- ?> </div> <?php
+ ?> </div> <button id="loadmore">Load More</button><?php
 
  }
 

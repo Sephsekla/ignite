@@ -79,3 +79,38 @@ return $html;
 }
 
 add_filter('get_custom_logo','display_logo',100,1);
+
+/*Ajax Load More*/
+
+add_action( 'wp_ajax_nopriv_ajax_pagination', 'my_ajax_pagination' );
+add_action( 'wp_ajax_ajax_pagination', 'my_ajax_pagination' );
+
+function my_ajax_pagination() {
+	$query_vars = json_decode( stripslashes( $_POST['query_vars'] ), true );
+	$query_page = json_decode( stripslashes( $_POST['query_page'] ), true );
+
+	    $query_vars['paged'] = $query_page;
+
+
+	    $posts = new WP_Query( $query_vars );
+	    $GLOBALS['wp_query'] = $posts;
+
+			//print_r($GLOBALS['wp_query']);
+
+
+	    if( ! $posts->have_posts() ) {
+	        get_template_part( 'content', 'none' );
+	    }
+
+
+
+	    else {
+	        while ( $posts->have_posts() ) {
+	            $posts->the_post();
+							get_template_part( 'template-parts/content', 'masonry' );
+	        }
+	    }
+
+
+	    die();
+}

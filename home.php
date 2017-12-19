@@ -54,7 +54,7 @@ get_template_part( 'template-parts/content', 'masonry' );
 
 endwhile;
 
-?> </div> <?php
+?> </div> <button id="loadmore">Load More</button><?php
 
 }
 
@@ -80,7 +80,7 @@ get_template_part( 'template-parts/content', 'masonry' );
 
 endwhile;
 
-?> </div> <?php
+?> </div> <button id="loadmore">Load More</button><?php
 
 }
 
@@ -103,7 +103,7 @@ endwhile;
 
 }
 
-			the_posts_navigation();
+			//the_posts_navigation();
 
 		else :
 
