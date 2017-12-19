@@ -111,6 +111,6 @@ function my_ajax_pagination() {
 	        }
 	    }
 
-
+echo $GLOBALS['wp_query']->max_num_pages;
 	    die();
 }

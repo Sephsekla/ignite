@@ -164,7 +164,8 @@ if(isset($wp_query->query['paged'])){
 	wp_localize_script( 'ajax-loadmore', 'ajaxpagination', array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),
 		'query_vars' => json_encode( $wp_query->query ),
-		'query_page' => $wp_query->query['paged']
+		'query_page' => $wp_query->query['paged'],
+		'max_page' => $wp_query->max_num_pages
 	));
 
 }
@@ -174,7 +175,8 @@ else{
 	wp_localize_script( 'ajax-loadmore', 'ajaxpagination', array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),
 		'query_vars' => json_encode( $wp_query->query ),
-		'query_page' => 1
+		'query_page' => 1,
+		'max_page' => $wp_query->max_num_pages
 	));
 
 }
