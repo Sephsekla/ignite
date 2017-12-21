@@ -72,6 +72,15 @@ return $html;
 
 else{
 
+if(!get_theme_mod('custom_logo')){
+
+	$html = sprintf( '<a href="%1$s" class="custom-logo-link" rel="home" itemprop="url">%2$s</a>',
+							esc_url( home_url( '/' ) ),
+							'<img src="'.get_template_directory_uri().'/inc/logo.png" itemprop="logo" class="custom-logo"/>'
+					);
+
+}
+
 return $html;
 
 }

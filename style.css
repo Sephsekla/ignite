@@ -755,11 +755,14 @@ transition: right 0.5s ease;
 }
 
 .custom-logo-link img, .custom-logo-link svg{
-	height: 80px;
+	max-height: 80px;
 	width: auto;
+	height: auto;
 	max-width: 120px;
 
 }
+
+.custom-logo-link svg{height: 80px;}
 
 .banner img{width: 100%;}
 
