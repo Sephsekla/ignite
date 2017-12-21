@@ -114,3 +114,12 @@ function my_ajax_pagination() {
 echo $GLOBALS['wp_query']->max_num_pages;
 	    die();
 }
+
+function ignition_get_the_id(){
+
+	if (is_home()){ $current_id = get_option('page_for_posts');}
+else{$current_id = get_the_id();}
+
+return $current_id;
+
+}

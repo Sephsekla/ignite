@@ -61,9 +61,10 @@ if(get_theme_mod('banner')=='wide'){
 
 ?>
 
-<div class="banner"><?php the_post_thumbnail('banner');?></div>
+<div class="banner"><?php echo get_the_post_thumbnail(ignition_get_the_id(),'banner');?></div>
 
 <?php
+
 
 }
 

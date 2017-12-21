@@ -754,7 +754,12 @@ transition: right 0.5s ease;
 	padding-bottom: 10px;
 }
 
-.custom-logo-link img, .custom-logo-link svg{height: 80px; width: auto}
+.custom-logo-link img, .custom-logo-link svg{
+	height: 80px;
+	width: auto;
+	max-width: 120px;
+
+}
 
 .banner img{width: 100%;}
 
