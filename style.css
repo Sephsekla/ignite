@@ -5,7 +5,7 @@ Author: Joe Bailey-Roberts
 Author URI: http://joebr.io
 GitHub Theme URI: sephsekla/ignition
 Description: A framework for bespoke theme development
-Version: 0.3.0
+Version: 0.3.1
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: ignition
@@ -928,7 +928,18 @@ margin: 0;
 .grid-item .masonry-inner{
 	background-color: #fafafa;
 	margin-bottom: 1.5em;
+	padding: 0;
+
+}
+
+.grid-item .masonry-content{
 	padding: 1em;
+
+}
+
+.grid-item .masonry-inner img{
+
+width: 100%;
 
 }
 

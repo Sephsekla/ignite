@@ -10,8 +10,9 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(array("grid-item col-xl-3 col-lg-4 col-md-6 col-sm-12")); ?>>
+	<div class='masonry-inner'>
 	<?php ignition_get_masonry_thumbnail(true); ?>
-<div class='masonry-inner'>
+<div class='masonry-content'>
 
 	<header class="entry-header container">
 		<?php
@@ -54,4 +55,4 @@
 	<footer class="entry-footer container">
 		<?php ignition_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
-</div></article><!-- #post-<?php the_ID(); ?> -->
+</div></div></article><!-- #post-<?php the_ID(); ?> -->

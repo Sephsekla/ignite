@@ -83,7 +83,7 @@ else{
 
 })
 
- $('.match-equal .grid-item').matchHeight({
+ $('.match-equal .grid-item .masonry-inner').matchHeight({
 
 property: 'height',
 byRow: false,
