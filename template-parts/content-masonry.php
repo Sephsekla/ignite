@@ -10,7 +10,9 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(array("grid-item col-xl-3 col-lg-4 col-md-6 col-sm-12")); ?>>
+	<?php ignition_get_masonry_thumbnail(true); ?>
 <div class='masonry-inner'>
+
 	<header class="entry-header container">
 		<?php
 		if ( is_singular() ) :

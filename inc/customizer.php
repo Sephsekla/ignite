@@ -125,6 +125,23 @@ function ignition_blog_options($wp_customize){
 	),
 	) );
 
+	$wp_customize->add_setting( 'blog-images' , array(
+		'default'     => 1,
+		'transport'   => 'refresh',
+	) );
+
+	$wp_customize->add_control( 'blog-images', array(
+	'label' => 'Blog image size',
+	'section' => 'ignition_blog',
+	'settings' => 'blog-images',
+	'type' => 'radio',
+	'choices' => array(
+		0 => 'Do not display images in blog archive',
+		1 => 'Blog images are displayed in their original ratio',
+		2 => 'Blog images are displayed at an equal size',
+	),
+	) );
+
 
 }
 

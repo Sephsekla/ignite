@@ -123,3 +123,32 @@ else{$current_id = get_the_id();}
 return $current_id;
 
 }
+
+function ignition_get_masonry_thumbnail($echo = false){
+
+$layout = get_theme_mod('blog-images');
+
+if(!$layout){
+
+$output ='';
+
+}
+
+elseif ($layout == 1) {
+
+$output = get_the_post_thumbnail(get_the_id(),'medium');
+
+}
+
+else{
+
+$output = get_the_post_thumbnail(get_the_id(),'medium-crop');
+
+}
+
+
+if($echo){echo $output;}
+
+else{return $output;}
+
+}
