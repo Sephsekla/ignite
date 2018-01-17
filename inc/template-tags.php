@@ -112,7 +112,7 @@ return '<section class="'.$classes.'"><div class="container">'.$content.'</div><
 
 endif;
 
-add_filter('the_content',function($content){return ignition_section($content);},100);
+//add_filter('the_content',function($content){return ignition_section($content);},100);
 
 function get_filters($taxonomy=false){
 

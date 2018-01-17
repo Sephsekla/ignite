@@ -197,7 +197,7 @@ wp_enqueue_style( 'google-font', '//fonts.googleapis.com/css?family=Open+Sans:30
 
 	if($position=='left'){
 
-		wp_enqueue_style( 'sidebar', get_template_directory_uri()."layouts/sidebar-content.css" );
+		wp_enqueue_style( 'sidebar', get_template_directory_uri()."/layouts/sidebar-content.css" );
 
 
 	}

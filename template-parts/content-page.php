@@ -14,18 +14,21 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<div class="entry-content">
+	<div class="entry-content container">
+
 		<?php
+
 			the_content();
 
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'ignition' ),
 				'after'  => '</div>',
 			) );
-		?>
+?>
 	</div><!-- .entry-content -->
 
-	<?php if ( get_edit_post_link() ) : ?>
+	<?php
+	if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer container">
 			<?php
 				edit_post_link(
@@ -46,5 +49,9 @@
 				);
 			?>
 		</footer><!-- .entry-footer -->
-	<?php endif; ?>
+	<?php endif;
+
+
+
+	?>
 </article><!-- #post-<?php the_ID(); ?> -->

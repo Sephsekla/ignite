@@ -6,7 +6,7 @@
  * Learn more: https://developer.wordpress.org/themes/basics/template-files/
 */
 
-.content-area {
+/*.content-area {
 	float: left;
 	margin: 0 -25% 0 0;
 	width: 100%;
@@ -19,7 +19,28 @@
 	overflow: hidden;
 	width: 25%;
 }
+
+*/
+
 .site-footer {
 	clear: both;
 	width: 100%;
 }
+
+.sidebar-container{background-color: #eeeeee;}
+
+.sidebar-background{
+
+background-color: #eeeeee;
+z-index: 1;
+position: absolute;
+top: 0;
+right: 0;
+height: 100%;
+width: 25%;
+
+}
+
+.site-main{position: relative;}
+
+.entry-content{z-index: 2; position: relative;}

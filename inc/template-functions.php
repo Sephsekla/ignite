@@ -59,7 +59,7 @@ if(get_theme_mod('banner')=='narrow'){
 
 }
 
-function display_logo(string $html){
+function display_logo( $html){
 
 if(get_theme_mod('logo-svg')){
 
