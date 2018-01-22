@@ -26,7 +26,7 @@
 			) );
 ?>
 	</div><!-- .entry-content -->
-
+<?php do_action('ignition_after_content') ?>
 	<?php
 	if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer container">
