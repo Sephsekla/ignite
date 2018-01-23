@@ -10,6 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<section class="content-no-sidebar">
 	<header class="entry-header container">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
@@ -25,7 +26,8 @@
 				'after'  => '</div>',
 			) );
 ?>
-	</div><!-- .entry-content -->
+</section><!-- .entry-content -->
+</div>
 <?php do_action('ignition_after_content') ?>
 	<?php
 	if ( get_edit_post_link() ) : ?>
