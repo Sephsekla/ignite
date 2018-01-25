@@ -13,6 +13,8 @@ $('#loadmore').click(
 
 function(event){
 
+  $('#loadmore').addClass('loading');
+
 console.log(ajaxpagination.max_page);
 
 
@@ -52,6 +54,8 @@ if(pageno == 0 || pageno == null){
 $('.grid').append( $items )
   // add and lay out newly appended items
   .isotope( 'appended', $items );
+
+  $('#loadmore').removeClass('loading');
 
 if(ajaxpagination.max_page <= pageno){
 
