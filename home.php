@@ -80,7 +80,11 @@ get_template_part( 'template-parts/content', 'masonry' );
 
 endwhile;
 
-?> </div> <button id="loadmore">Load More</button><?php
+?> </div> <?php
+
+echo apply_filters('loadmore_button','<button id="loadmore">Load More</button>');
+
+
 
 }
 
