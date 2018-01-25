@@ -32,6 +32,7 @@ $(this).addClass('hover');
  } )
 
 
+var $grid = [];
 
  $('.grid').each( function(){
 
@@ -79,7 +80,12 @@ else{
 
 }
 
- $(this).isotope($isoargs);
+ $grid[$grid.length] = $(this).isotope($isoargs);
+
+
+ $grid[$grid.length - 1].imagesLoaded().progress( function() {
+//$grid.isotope('layout');
+});
 
 })
 
