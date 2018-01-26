@@ -53,7 +53,11 @@ if(pageno == 0 || pageno == null){
 // append items to grid
 $('.grid').append( $items )
   // add and lay out newly appended items
-  .isotope( 'appended', $items );
+$('.grid').isotope( 'appended', $items );
+
+$('.grid').imagesLoaded().progress( function() {
+$('.grid').isotope('layout');
+});
 
   $('#loadmore').removeClass('loading');
 
