@@ -568,7 +568,7 @@ a:hover, a:active {
 
 .menu-menu-1-container{
 	position: fixed;
-	height: 100vh; width: 100vw;
+	min-height: 100vh; min-width: 100vw;
 	background-color: rgba(0,0,0,0.5);
 	top: 0;
 	right: -100vw;
@@ -597,7 +597,7 @@ transition: right 0.5s ease;
 		display: none;
 	}
 
-.menu-menu-1-container{width: 30vw}
+.menu-menu-1-container{min-width: 30vw}
 
 	.main-navigation ul {
 		display: block;
@@ -611,8 +611,8 @@ transition: right 0.5s ease;
 
 .no_burger .menu-menu-1-container{
 	position: relative;
-	height: initial;
-	width: initial;
+	min-height: 0;
+	min-width: 0;
 	background-color: transparent;
 	top: 0;
 	left: 0;
