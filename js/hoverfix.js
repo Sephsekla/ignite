@@ -3,18 +3,14 @@
  *
  */
 
-
 jQuery(document).ready((function($){
 
-$(".canhover" ).on( "tap", function( event ) {
 
-if($(this).is(":hover")){
+$("body" ).on( "tap",".canhover", function() {
 
-return false;
+if(!$(this).is(".canhover:hover")){
 
-}
-
-else if($(this).hasClass("hover")){
+if($(this).hasClass("hover")){
 
 $(this).removeClass('hover');
 
@@ -24,10 +20,17 @@ else{
 
 event.preventDefault();
 
+
 $(this).addClass('hover');
 
 
 }
+}
+else{
+
+
+}
+
 
  } )
 
@@ -80,11 +83,11 @@ else{
 
 }
 
- $grid[$grid.length] = $(this).isotope($isoargs);
+ var $grid = $(this).isotope($isoargs);
 
 
- $grid[$grid.length - 1].imagesLoaded().progress( function() {
-//$grid.isotope('layout');
+ $grid.imagesLoaded().progress( function() {
+$grid.isotope('layout');
 });
 
 })
