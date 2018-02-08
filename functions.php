@@ -181,6 +181,15 @@ else{
 		'max_page' => $wp_query->max_num_pages
 	));
 
+
+	wp_enqueue_script( 'google-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDoGSPzagw6Y8N08fWo1SXhWAa-DLV2cMA',array(),'',true );
+
+	wp_enqueue_script( 'acf-maps', get_stylesheet_directory_uri() . '/js/acf-maps.js',array('jquery','google-maps'),'',true );
+
+	$wp_details = array( 'templateUrl' => get_stylesheet_directory_uri() );
+	//after wp_enqueue_script
+	wp_localize_script( 'acf-maps', 'wp_details', $wp_details );	
+
 }
 
 
