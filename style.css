@@ -5,7 +5,7 @@ Author: Joe Bailey-Roberts
 Author URI: http://joebr.io
 GitHub Theme URI: sephsekla/ignition
 Description: A framework for bespoke theme development
-Version: 0.3.1
+Version: 0.4.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: ignition
@@ -566,7 +566,7 @@ a:hover, a:active {
 	display: block;
 }
 
-.menu-menu-1-container{
+#site-navigation > div{
 	position: fixed;
 	min-height: 100vh; min-width: 100vw;
 	background-color: rgba(0,0,0,0.5);
@@ -578,7 +578,7 @@ justify-content: center;
 transition: right 0.5s ease;
 }
 
-.toggled .menu-menu-1-container{display: flex; right: 0;}
+#site-navigation.toggled  > div{display: flex; right: 0;}
 
 .menu-toggle {
     position: relative;
@@ -597,7 +597,7 @@ transition: right 0.5s ease;
 		display: none;
 	}
 
-.menu-menu-1-container{min-width: 30vw}
+#site-navigation > div{min-width: 30vw}
 
 	.main-navigation ul {
 		display: block;
@@ -609,7 +609,7 @@ transition: right 0.5s ease;
 		padding-left: 15px;
 	}
 
-.no_burger .menu-menu-1-container{
+.no_burger #site-navigation > div{
 	position: relative;
 	min-height: 0;
 	min-width: 0;
