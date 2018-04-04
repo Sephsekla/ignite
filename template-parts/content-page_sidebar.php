@@ -16,7 +16,10 @@
 		<div class="row d-flex align-items-stretch">
 			<div class="col-md-8 content-with-sidebar">
 				<header class="entry-header">
-					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+					<?php
+do_action('before_title');
+
+					 the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 				</header><!-- .entry-header -->
 		<?php
 

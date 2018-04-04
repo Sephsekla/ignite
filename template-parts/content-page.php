@@ -12,7 +12,9 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<section class="content-no-sidebar">
 	<header class="entry-header container">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<?php
+do_action('before_title');
+		the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content container">
