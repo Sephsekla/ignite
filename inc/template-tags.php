@@ -169,16 +169,15 @@ $output.="</button>";
 
 	}
 
-if($output!==''){
+	if($output!==''){
 
-	echo "<div id='filters' class='d-flex justify-content-center row'>";
+	if($showall){	echo "<div id='filters' class='d-flex justify-content-center row'><button href='#' data-filter='*' class='filter-active btn-dark'>show all</button>"; }
+	else{echo "<div id='filters' class='d-flex justify-content-center row initial-filter'>";}
 
-if($showall){	echo "<button href='#' data-filter='*' class='filter-active btn-dark'>show all</button>"; }
-
-	echo $output."</div>";
+		echo $output."</div>";
 
 
-}
+	}
 
 }
 
