@@ -114,7 +114,7 @@ endif;
 
 //add_filter('the_content',function($content){return ignition_section($content);},100);
 
-function get_filters($taxonomy=false){
+function get_filters($taxonomy=false,$showall=true){
 
 $output ='';
 
@@ -147,12 +147,20 @@ else{
 
 	//print_r($termdata);
 	//echo $termdata=>'';
-
+$i=0;
 	foreach($termdata as $term => $data){
 
 	//print_r($data);
 
-	$output.= "<button data-filter='.".$key."-".$data -> slug."' class='btn-dark filter-".$data -> slug."'>";
+	$output.= "<button data-filter='.".$key."-".$data -> slug."' class='btn-dark";
+
+if($i ==0 && !$showall){
+
+$output .= " filter-active";
+
+}
+
+	$output .= "'>";
 	$output.= $data -> name;
 $output.="</button>";
 	}
@@ -161,7 +169,11 @@ $output.="</button>";
 
 if($output!==''){
 
-	echo "<div id='filters' class='d-flex justify-content-center row filters-".$taxonomy."'><button href='#' data-filter='*' class='filter-active btn-dark filter-all'>show all</button>".$output."</div>";
+	echo "<div id='filters' class='d-flex justify-content-center row'>";
+
+if($showall){	echo "<button href='#' data-filter='*' class='filter-active btn-dark'>show all</button>"; }
+
+	echo $output."</div>";
 
 
 }

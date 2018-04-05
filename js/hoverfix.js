@@ -107,6 +107,12 @@ $('#filters').on( 'click', 'button', function() {
   $(this).addClass('filter-active');
 });
 
+f($('#filters')).hasClass('initial-filter'){
 
+var filterValue = $( '.filter-active' ).attr('data-filter');
+
+$(".grid").isotope({ filter: filterValue });
+
+}
 
 })( jQuery ));
