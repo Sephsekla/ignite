@@ -160,6 +160,8 @@ $output .= " filter-active";
 
 }
 
+$i++;
+
 	$output .= "'>";
 	$output.= $data -> name;
 $output.="</button>";
