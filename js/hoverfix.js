@@ -69,6 +69,21 @@ $isoargs = {
 
 }
 
+else if($(this).hasClass('different-sizes')){
+
+$isoargs = {
+  // options
+  itemSelector: '.grid-item',
+  columnWidth: '.column-sizer',
+  percentPosition: true,
+  //gutter: 10,
+  horizontalOrder: true,
+  layoutMode : 'masonry'
+}
+
+
+}
+
 else{
 
   $isoargs = {
