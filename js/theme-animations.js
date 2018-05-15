@@ -30,6 +30,16 @@ $('a[href*="#"]')
       if (target.length) {
         // Only prevent default if animation is actually gonna happen
         event.preventDefault();
+
+if($('#site-navigation').hasClass("toggled")){
+
+$('#site-navigation').removeClass("toggled")
+
+$('.menu-toggle').attr('aria-expanded',false);
+
+}
+
+
         $('html, body').animate({
           scrollTop: target.offset().top
         }, 700, function() {
