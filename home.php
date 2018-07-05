@@ -30,90 +30,93 @@ get_header(); ?>
 
 			<?php
 
-if(get_theme_mod('blog-layout')=='masonry'){
+			if ( get_theme_mod( 'blog-layout' ) == 'masonry' ) {
 
-	get_filters('category');
+				get_filters( 'category' );
 
-?>
+				?>
 
 <div class="grid masonry row">
 
-<?php
-	/* Start the Loop */
-	while ( have_posts() ) : the_post();
+				<?php
+				/* Start the Loop */
+				while ( have_posts() ) :
+					the_post();
 
-		/*
-		 * Include the Post-Format-specific template for the content.
-		 * If you want to override this in a child theme, then include a file
-		 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-		 */
+					/*
+					 * Include the Post-Format-specific template for the content.
+					 * If you want to override this in a child theme, then include a file
+					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+					 */
 
 
 
-get_template_part( 'template-parts/content', 'masonry' );
+					get_template_part( 'template-parts/content', 'masonry' );
 
-endwhile;
+			endwhile;
 
-?> </div> <button id="loadmore">Load More</button><?php
+				?>
+			 </div> <button id="loadmore">Load More</button>
+				<?php
 
-}
+			} elseif ( get_theme_mod( 'blog-layout' ) == 'equal' ) {
 
-elseif(get_theme_mod('blog-layout')=='equal'){
-
-?>
+				?>
 
 <div class="grid masonry row match-equal">
 
-<?php
-	/* Start the Loop */
-	while ( have_posts() ) : the_post();
+				<?php
+				/* Start the Loop */
+				while ( have_posts() ) :
+					the_post();
 
-		/*
-		 * Include the Post-Format-specific template for the content.
-		 * If you want to override this in a child theme, then include a file
-		 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-		 */
-
-
-
-get_template_part( 'template-parts/content', 'masonry' );
-
-endwhile;
-
-?> </div> <?php
-
-echo apply_filters('loadmore_button','<button id="loadmore">Load More</button>');
+					/*
+					 * Include the Post-Format-specific template for the content.
+					 * If you want to override this in a child theme, then include a file
+					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+					 */
 
 
 
-}
+					get_template_part( 'template-parts/content', 'masonry' );
 
-else{
+			endwhile;
 
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+				?>
+			 </div> 
+				<?php
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
+				echo apply_filters( 'loadmore_button', '<button id="loadmore">Load More</button>' );
 
 
 
-	get_template_part( 'template-parts/content', get_post_format() );
+			} else {
 
-endwhile;
+						/* Start the Loop */
+				while ( have_posts() ) :
+					the_post();
 
-}
+					/*
+					* Include the Post-Format-specific template for the content.
+					* If you want to override this in a child theme, then include a file
+					* called content-___.php (where ___ is the Post Format name) and that will be used instead.
+					*/
 
-			//the_posts_navigation();
 
+
+					get_template_part( 'template-parts/content', get_post_format() );
+
+			endwhile;
+
+			}
+
+			// the_posts_navigation();
 		else :
 
 			get_template_part( 'template-parts/content', 'none' );
 
-		endif; ?>
+		endif;
+		?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

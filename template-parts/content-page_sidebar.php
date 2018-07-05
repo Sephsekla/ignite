@@ -17,22 +17,26 @@
 			<div class="col-md-8 content-with-sidebar">
 				<header class="entry-header">
 					<?php
-do_action('before_title');
+					do_action( 'before_title' );
 
-					 the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+					 the_title( '<h1 class="entry-title">', '</h1>' );
+					?>
 				</header><!-- .entry-header -->
 		<?php
 
 			the_content();
 
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'ignition' ),
-				'after'  => '</div>',
-			) );
-?>
-<?php do_action('ignition_after_content') ?>
+			wp_link_pages(
+				array(
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'ignition' ),
+					'after'  => '</div>',
+				)
+			);
+			?>
+<?php do_action( 'ignition_after_content' ); ?>
 <?php
-if ( get_edit_post_link() ) : ?>
+if ( get_edit_post_link() ) :
+	?>
 	<footer class="entry-footer container">
 		<?php
 			edit_post_link(
@@ -53,7 +57,8 @@ if ( get_edit_post_link() ) : ?>
 			);
 		?>
 	</footer><!-- .entry-footer -->
-<?php endif;
+	<?php
+endif;
 ?>
 </div><div class="col-md-4 sidebar-container">
 		<?php

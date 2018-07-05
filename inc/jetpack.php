@@ -16,26 +16,30 @@
  */
 function ignition_jetpack_setup() {
 	// Add theme support for Infinite Scroll.
-	add_theme_support( 'infinite-scroll', array(
-		'container' => 'main',
-		'render'    => 'ignition_infinite_scroll_render',
-		'footer'    => 'page',
-	) );
+	add_theme_support(
+		'infinite-scroll', array(
+			'container' => 'main',
+			'render'    => 'ignition_infinite_scroll_render',
+			'footer'    => 'page',
+		)
+	);
 
 	// Add theme support for Responsive Videos.
 	add_theme_support( 'jetpack-responsive-videos' );
 
 	// Add theme support for Content Options.
-	add_theme_support( 'jetpack-content-options', array(
-		'post-details' => array(
-			'stylesheet' => 'ignition-style',
-			'date'       => '.posted-on',
-			'categories' => '.cat-links',
-			'tags'       => '.tags-links',
-			'author'     => '.byline',
-			'comment'    => '.comments-link',
-		),
-	) );
+	add_theme_support(
+		'jetpack-content-options', array(
+			'post-details' => array(
+				'stylesheet' => 'ignition-style',
+				'date'       => '.posted-on',
+				'categories' => '.cat-links',
+				'tags'       => '.tags-links',
+				'author'     => '.byline',
+				'comment'    => '.comments-link',
+			),
+		)
+	);
 }
 add_action( 'after_setup_theme', 'ignition_jetpack_setup' );
 

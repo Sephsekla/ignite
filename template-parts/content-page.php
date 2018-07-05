@@ -13,8 +13,9 @@
 		<section class="content-no-sidebar">
 	<header class="entry-header container">
 		<?php
-do_action('before_title');
-		the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		do_action( 'before_title' );
+		the_title( '<h1 class="entry-title">', '</h1>' );
+		?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content container">
@@ -23,16 +24,19 @@ do_action('before_title');
 
 			the_content();
 
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'ignition' ),
-				'after'  => '</div>',
-			) );
-?>
+			wp_link_pages(
+				array(
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'ignition' ),
+					'after'  => '</div>',
+				)
+			);
+			?>
 </section><!-- .entry-content -->
 </div>
-<?php do_action('ignition_after_content') ?>
+<?php do_action( 'ignition_after_content' ); ?>
 	<?php
-	if ( get_edit_post_link() ) : ?>
+	if ( get_edit_post_link() ) :
+		?>
 		<footer class="entry-footer container">
 			<?php
 				edit_post_link(
@@ -53,7 +57,8 @@ do_action('before_title');
 				);
 			?>
 		</footer><!-- .entry-footer -->
-	<?php endif;
+		<?php
+	endif;
 
 
 

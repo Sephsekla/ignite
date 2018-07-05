@@ -17,7 +17,8 @@ if ( ! function_exists( 'ignition_posted_on' ) ) :
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
 		}
 
-		$time_string = sprintf( $time_string,
+		$time_string = sprintf(
+			$time_string,
 			esc_attr( get_the_date( 'c' ) ),
 			esc_html( get_the_date() ),
 			esc_attr( get_the_modified_date( 'c' ) ),
@@ -103,119 +104,101 @@ endif;
 
 if ( ! function_exists( 'ignition_section' ) ) :
 
-function ignition_section($content='', $classes=''){
+	function ignition_section( $content = '', $classes = '' ) {
 
-return '<section class="'.$classes.'"><div class="container">'.$content.'</div></section>';
+		return '<section class="' . $classes . '"><div class="container">' . $content . '</div></section>';
 
-
-}
+	}
 
 endif;
 
-//add_filter('the_content',function($content){return ignition_section($content);},100);
+// add_filter('the_content',function($content){return ignition_section($content);},100);
+function get_filters( $taxonomy = false, $showall = true ) {
 
-function get_filters($taxonomy=false,$showall=true){
+	$output = '';
 
-$output ='';
+	if ( $taxonomy ) {
 
-if($taxonomy){
+		$taxonomy_objects = array( $taxonomy => get_taxonomy( $taxonomy ) );
 
-$taxonomy_objects = array($taxonomy => get_taxonomy($taxonomy));
+	} else {
 
+		global $wp_query;
 
-}
-else{
+		// print_r($wp_query->query_vars['post_type']);
+		$taxonomy_objects = get_object_taxonomies( $wp_query->query_vars['post_type'], 'objects' );
+		// print_r( $taxonomy_objects);
+	}
+	foreach ( $taxonomy_objects as $key => $value ) {
 
-	global $wp_query;
+		$termdata = get_terms(
 
-	//print_r($wp_query->query_vars['post_type']);
+			array(
+				'taxonomy'   => $key,
+				'hide_empty' => false,
+			)
+		);
 
-	$taxonomy_objects = get_object_taxonomies( $wp_query->query_vars['post_type'], 'objects' );
-	//print_r( $taxonomy_objects);
-}
-	foreach($taxonomy_objects as $key => $value){
+		// print_r($termdata);
+		// echo $termdata=>'';
+		$i = 0;
+		foreach ( $termdata as $term => $data ) {
 
-	$termdata = get_terms(
+			// print_r($data);
+			$output .= "<button data-filter='." . $key . '-' . $data->slug . "' class='btn-dark";
 
-	array(
-	'taxonomy' => $key,
-	'hide_empty' => false,
-	)
+			if ( $i == 0 && ! $showall ) {
 
+				$output .= ' filter-active';
 
-	);
+			}
 
-	//print_r($termdata);
-	//echo $termdata=>'';
-$i=0;
-	foreach($termdata as $term => $data){
+			$i++;
 
-	//print_r($data);
-
-	$output.= "<button data-filter='.".$key."-".$data -> slug."' class='btn-dark";
-
-if($i ==0 && !$showall){
-
-$output .= " filter-active";
-
-}
-
-$i++;
-
-	$output .= "'>";
-	$output.= $data -> name;
-$output.="</button>";
+			$output .= "'>";
+			$output .= $data->name;
+			$output .= '</button>';
+		}
 	}
 
-	}
+	if ( $output !== '' ) {
 
-	if($output!==''){
+		if ( $showall ) {
+			echo "<div id='filters' class='d-flex justify-content-center row'><button href='#' data-filter='*' class='filter-active btn-dark'>show all</button>";
+		} else {
+			echo "<div id='filters' class='d-flex justify-content-center row initial-filter'>";}
 
-	if($showall){	echo "<div id='filters' class='d-flex justify-content-center row'><button href='#' data-filter='*' class='filter-active btn-dark'>show all</button>"; }
-	else{echo "<div id='filters' class='d-flex justify-content-center row initial-filter'>";}
-
-		echo $output."</div>";
-
+		echo $output . '</div>';
 
 	}
 
 }
 
-//MASONRY GALLERY
+// MASONRY GALLERY
+function mgallery( $images = array(), $fullwidth = false, $inline = false ) {
 
-function mgallery($images=array(),$fullwidth=false,$inline=false){
+	$output = '';
 
-$output = '';
+	foreach ( $images as $image => $ID ) {
 
+		$meta = wp_get_attachment_metadata( $ID );
 
-foreach($images as $image=>$ID){
+		if ( $meta['width'] > 2 * $meta['height'] ) {
 
-$meta = wp_get_attachment_metadata($ID);
+			$output .= '<div class="grid-item col-xs-12 col-md-8 col-lg-6">' . wp_get_attachment_image( $ID, 'medium' ) . '</div>';
 
-if($meta['width'] > 2*$meta['height']){
+		} else {
+			$output .= '<div class="grid-item col-xs-12 col-sm-6 col-md-4 col-lg-3">' . wp_get_attachment_image( $ID, 'medium' ) . '</div>';
 
-$output .= '<div class="grid-item col-xs-12 col-md-8 col-lg-6">'.wp_get_attachment_image($ID,'medium').'</div>';
+		}
+	}
 
+	if ( $inline ) {
+		return '<div class="grid row no-gutters image-grid">' . $output . '</div>';} elseif ( $fullwidth ) {
 
-}
+		return '<section><div class="container-fluid"><div class="grid row no-gutters image-grid">' . $output . '</div></div></section>';
 
-else{
-$output .= '<div class="grid-item col-xs-12 col-sm-6 col-md-4 col-lg-3">'.wp_get_attachment_image($ID,'medium').'</div>';
-
-}
-
-}
-
-if($inline){return '<div class="grid row no-gutters image-grid">'.$output.'</div>';}
-
-else if($fullwidth){
-
-	return '<section><div class="container-fluid"><div class="grid row no-gutters image-grid">'.$output.'</div></div></section>';
-
-
-}
-
-else{
-	return '<section><div class="container"><div class="grid row no-gutters image-grid">'.$output.'</div></div></section>';
-}
+		} else {
+			return '<section><div class="container"><div class="grid row no-gutters image-grid">' . $output . '</div></div></section>';
+		}
 }

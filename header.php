@@ -29,7 +29,8 @@
 		<div class="site-branding">
 			<?php
 			the_custom_logo();
-			if ( is_front_page() && is_home() ) : ?>
+			if ( is_front_page() && is_home() ) :
+				?>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			<?php else : ?>
 				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
@@ -37,33 +38,37 @@
 			endif;
 
 			$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) : ?>
+if ( $description || is_customize_preview() ) :
+	?>
 				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
 			<?php
-			endif; ?>
+			endif;
+?>
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'ignition' ); ?></button>
 			<?php
-				wp_nav_menu( array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				) );
-			?>
+				wp_nav_menu(
+					array(
+						'theme_location' => 'menu-1',
+						'menu_id'        => 'primary-menu',
+					)
+				);
+				?>
 		</nav><!-- #site-navigation -->
 	</div>
 	</header><!-- #masthead -->
 
 <?php
 
-if(get_theme_mod('banner')=='wide'){
+if ( get_theme_mod( 'banner' ) == 'wide' ) {
 
-?>
+	?>
 
-<div class="banner"><?php echo get_the_post_thumbnail(ignition_get_the_id(),'banner');?></div>
+<div class="banner"><?php echo get_the_post_thumbnail( ignition_get_the_id(), 'banner' ); ?></div>
 
-<?php
+	<?php
 
 
 }

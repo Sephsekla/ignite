@@ -9,9 +9,9 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(array("grid-item col-xl-3 col-lg-4 col-md-6 col-sm-12")); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( array( 'grid-item col-xl-3 col-lg-4 col-md-6 col-sm-12' ) ); ?>>
 	<div class='masonry-inner'>
-	<?php ignition_get_masonry_thumbnail(true); ?>
+	<?php ignition_get_masonry_thumbnail( true ); ?>
 <div class='masonry-content'>
 
 	<header class="entry-header container">
@@ -22,34 +22,40 @@
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
 
-		if ( 'post' === get_post_type() ) : ?>
+		if ( 'post' === get_post_type() ) :
+			?>
 		<div class="entry-meta">
 			<?php ignition_posted_on(); ?>
 		</div><!-- .entry-meta -->
-		<?php
-		endif; ?>
+			<?php
+		endif;
+		?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
 		<?php
-			the_excerpt( sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'ignition' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				get_the_title()
-			) );
+			the_excerpt(
+				sprintf(
+					wp_kses(
+						/* translators: %s: Name of current post. Only visible to screen readers */
+						__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'ignition' ),
+						array(
+							'span' => array(
+								'class' => array(),
+							),
+						)
+					),
+					get_the_title()
+				)
+			);
 
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'ignition' ),
-				'after'  => '</div>',
-			) );
-		?>
+			wp_link_pages(
+				array(
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'ignition' ),
+					'after'  => '</div>',
+				)
+			);
+			?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer container">

@@ -18,20 +18,20 @@ get_header(); ?>
 		<main id="main" class="site-main">
 
 			<?php
-			while ( have_posts() ) : the_post();
+			while ( have_posts() ) :
+				the_post();
 
 
 
-if(get_theme_mod('sidebar') == 'right' || get_theme_mod('sidebar') == 'left'){
+				if ( get_theme_mod( 'sidebar' ) == 'right' || get_theme_mod( 'sidebar' ) == 'left' ) {
 
-				get_template_part( 'template-parts/content', 'page_sidebar');
+								get_template_part( 'template-parts/content', 'page_sidebar' );
 
-				echo "<div class='sidebar-background'></div>";
+								echo "<div class='sidebar-background'></div>";
 
 
-			}
-
-else{get_template_part( 'template-parts/content', 'page' );}
+				} else {
+					get_template_part( 'template-parts/content', 'page' );}
 
 				// If comments are open or we have at least one comment, load up the comment template.
 				if ( comments_open() || get_comments_number() ) :
