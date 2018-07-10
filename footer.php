@@ -12,13 +12,13 @@
 ?>
 
 	</div><!-- #content -->
-<?php do_action('before_footer'); ?>
+<?php do_action( 'before_footer' ); ?>
 	<footer id="colophon" class="site-footer">
 		<div class="site-info">
 			<?php
 
-			do_action('site_info');
-						?>
+			do_action( 'site_info' );
+			?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

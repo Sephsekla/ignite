@@ -7,9 +7,9 @@
  * @package ignition
  */
 
-$position = get_theme_mod('sidebar');
+$position = get_theme_mod( 'sidebar' );
 
-if ( ! is_active_sidebar( 'sidebar-1' ) || !$position) {
+if ( ! is_active_sidebar( 'sidebar-1' ) || ! $position ) {
 	return;
 }
 
